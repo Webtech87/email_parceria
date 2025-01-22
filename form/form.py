@@ -7,6 +7,11 @@ from wtforms.fields.simple import SubmitField, TextAreaField, EmailField
 from wtforms import Form, StringField, validators
 from wtforms.validators import DataRequired, Email, Regexp
 
+# imports for working with excel
+import os
+from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Font
+
 partners_list = [
     'Márcia Monteiro Micropigmentação','Claudia Vieira'
 ]
@@ -86,3 +91,25 @@ class PartnerShipForm(FlaskForm):
         "Enviar",
         render_kw={"class": "input_class_submit"}
     )
+
+# Create or load Excel file and save information from the form
+def save_to_excel(data):
+    file_name = 'client_info.xlsx'
+
+    if not os.path.exists(file_name):
+        wb = Workbook()
+        sheet = wb.active
+
+        headers = ["Nome", "Apelido", "Telefone", "Email", "Parceiro(a)", "Procedimento"]
+        bold_font = Font(bold=True)
+
+        for col, header in enumerate(headers, start=1):
+            cell = sheet.cell(row=1, column=col, value=header)
+            cell.font = bold_font
+    
+    else:
+        wb = load_workbook(file_name)
+    
+    sheet = wb.active
+    sheet.append(data)
+    wb.save(file_name)

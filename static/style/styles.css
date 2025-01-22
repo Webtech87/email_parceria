@@ -46,9 +46,15 @@ form {
   width: 90%;
   height: 30px;
   margin-left: 4%;
-  font-size: 25px;
+  font-size: 20px;
   align-items: center;
   border-radius: 15px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* Hover effect for the inputs */
@@ -57,11 +63,16 @@ form {
   border-color: #28a745; /* Change border color on hover */
 }
 
+.input_class_selection {
+  
+}
+
 .logo {
   width: 150px;
   height: 150px;
   margin: 25px auto;
   animation: bounce 3s infinite; /* Apply the animation */
+  margin-top: 80px;
 }
 
 /* Keyframes for bounce animation */
@@ -104,6 +115,9 @@ form {
   background-color: rgb(16, 183, 80);
   border-radius: 15px;
   cursor: pointer;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Add hover effect */
@@ -115,14 +129,23 @@ form {
   width: 91%;
   margin-left: 5%;
   height: 40px;
-  font-size: 25px;
+  font-size: 20px;
   border-radius: 15px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .label {
   margin: 0px 0px 0px 30px;
   font-size: 25px;
   padding: 0;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .chack_input {
@@ -142,6 +165,9 @@ form {
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .suxcess_msg {
@@ -175,7 +201,13 @@ label {
 }
 
 .description {
+  display: flex;
+  justify-items: center;
+  align-items: center;
   width: 90%;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 #cookies {
@@ -197,6 +229,13 @@ label {
   gap: 10px;
 }
 
+.cookies p {
+  margin-left: 10px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
 .cookies a {
   color: yellow;
   font-weight: 500;
@@ -212,6 +251,10 @@ label {
   border: 3px solid white;
   background-color: black;
   color: white;
+  margin-right: 10px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 /*success message style*/ 
