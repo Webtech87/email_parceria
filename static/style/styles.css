@@ -46,7 +46,7 @@ form {
   width: 90%;
   height: 30px;
   margin-left: 4%;
-  font-size: 20px;
+  font-size: 16px;
   align-items: center;
   border-radius: 15px;
   padding-left: 10px;
@@ -61,10 +61,6 @@ form {
 .input_class:hover {
   background-color: #f1f1f1; /* Light gray background on hover */
   border-color: #28a745; /* Change border color on hover */
-}
-
-.input_class_selection {
-  
 }
 
 .logo {
@@ -129,7 +125,7 @@ form {
   width: 91%;
   margin-left: 5%;
   height: 40px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 15px;
   padding-left: 10px;
   padding-top: 5px;
@@ -197,7 +193,6 @@ form {
 label {
   font-size: 16px;
   cursor: pointer;
-  margin-left: 10px; 
 }
 
 .description {
@@ -208,6 +203,10 @@ label {
   font-family: "Roboto", serif;
   font-weight: 300;
   font-style: normal;
+}
+
+label[for="checkbox"] {
+  font-size: 13px;
 }
 
 #cookies {
