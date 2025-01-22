@@ -1,0 +1,303 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full height for body and html */
+  width: 100%; /* Ensure full width */
+  background-image: url(../img/background_image.jpg);
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents repeating the image */
+  background-attachment: fixed; /* Makes the background stay fixed during scroll */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Aligns content to the top */
+  padding-top: 20px; /* Small padding at the top to avoid content being too close to the top */
+  box-sizing: border-box; /* Ensures padding and margin are considered in the element's total width/height */
+}
+
+/* Style the image container */
+.image-container {
+  background: none; /* Ensure no background image here */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Make the image cover the full container */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+form {
+  width: 30%;
+  margin: -15rem auto; /* 15rem top and bottom margin, auto for left/right */
+  border: 3px solid white;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.input_class {
+  width: 90%;
+  height: 30px;
+  margin-left: 4%;
+  font-size: 25px;
+  align-items: center;
+  border-radius: 15px;
+}
+
+/* Hover effect for the inputs */
+.input_class:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  border-color: #28a745; /* Change border color on hover */
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  margin: 25px auto;
+  animation: bounce 3s infinite; /* Apply the animation */
+}
+
+/* Keyframes for bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0); /* Original position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 20px */
+  }
+}
+
+/* Alternative: Smooth horizontal movement */
+@keyframes moveHorizontally {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px); /* Move right */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.logo img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.input_class_submit {
+  width: 30%;
+  height: 50px;
+  margin-left: 35%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 30px;
+  align-items: center;
+  background-color: rgb(16, 183, 80);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Add hover effect */
+.input_class_submit:hover {
+  background-color: rgb(0, 150, 50); /* Change background color when hovering */
+}
+
+.input_class_selection {
+  width: 91%;
+  margin-left: 5%;
+  height: 40px;
+  font-size: 25px;
+  border-radius: 15px;
+}
+
+.label {
+  margin: 0px 0px 0px 30px;
+  font-size: 25px;
+  padding: 0;
+}
+
+.chack_input {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.custom_checkbox {
+  transform: scale(2);
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.suxcess_msg {
+  color: green;
+  width: 70%;
+  font-size: 35px;
+  text-align: center;
+  margin: auto;
+}
+
+.custom_checkbox:checked {
+  background-color: green;
+  border-color: green; 
+}
+
+.custom_checkbox:checked::after {
+  content: "✔"; 
+  color: white; 
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label {
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px; 
+}
+
+.description {
+  width: 90%;
+}
+
+#cookies {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  background-color: rgb(0, 0, 0, 0.7);
+  z-index: 1;
+  /*display: none;*/
+}
+
+.cookies {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cookies a {
+  color: yellow;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#cookies-btn {
+  border-radius: 5px;
+  padding: 8px 12px 8px 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  border: 3px solid white;
+  background-color: black;
+  color: white;
+}
+
+/*success message style*/ 
+.flash-message { 
+  padding: 10px; 
+  margin-top: 20px; 
+  border-radius: 5px; 
+  text-align: center; 
+} 
+ 
+.flash-message.error { 
+  background-color: #dc3545; 
+  color: white; 
+} 
+ 
+ 
+/* Define the blinking animation */ 
+@keyframes blink { 
+  0% { 
+    opacity: 1; 
+  } 
+  50% { 
+    opacity: 0.5; 
+  } 
+  100% { 
+    opacity: 1; 
+  } 
+}
+  /*success message style*/ 
+  .flash-message { 
+    padding: 5px; 
+    margin-top: 20px; 
+    border-radius: 5px; 
+    text-align: center; 
+  } 
+ 
+.flash-message.success { 
+  background-color: #28a745; 
+  width: 80%;
+  margin: 0 auto;
+  color: white; 
+} 
+ 
+.flash-message.error { 
+  background-color: #dc3545; 
+  color: white; 
+} 
+ 
+ 
+/* Define the blinking animation */ 
+@keyframes blink { 
+  0% { 
+    opacity: 1; 
+  } 
+  50% { 
+    opacity: 0.5; 
+  } 
+  100% { 
+    opacity: 1; 
+  } 
+} 
+ 
+/* Apply the blinking animation to the button */ 
+#cookies-btn.blinking { 
+  animation: blink 1s infinite; /* 1 second interval, infinite looping */ 
+} 
+ 
+ 
+ 
+/* Define the blinking animation */ 
+@keyframes blink { 
+  0% { 
+    opacity: 1; 
+  } 
+  20% { 
+    opacity: 0; 
+  } 
+  100% { 
+    opacity: 1; 
+  } 
+} 
+ 
+/* Apply the blinking effect to the success message */ 
+.flash-message { 
+  color: green; 
+  text-align: center; 
+  margin: auto; 
+  animation: blink 3s infinite;  /* Apply blinking animation */ 
+}

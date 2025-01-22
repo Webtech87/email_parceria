@@ -1,0 +1,108 @@
+@media (max-width: 1700px) {
+  form {
+    width: 30%;
+  }
+
+  .label {
+    margin: -10px 0px -10px 30px;
+  }
+}
+
+@media (max-width: 1500px) {
+  form {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1200px) {
+  form {
+    width: 50%;
+  }
+
+  .label {
+    margin: -5px 0px -5px 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  form {
+    width: 60%;
+  }
+
+  .label {
+    margin: -15px 0px -15px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 80%;
+  }
+
+  .input_class {
+    width: 90%;
+    height: 20px !important;
+    margin-left: 5%;
+    font-size: 25px;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  .label {
+    margin: -10px 0px -10px 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  form {
+    margin-top: -280px;
+    width: 90%; /* Use 90% width for small screens */
+    padding: 0px; /* Reduce padding for more space */
+    max-height: 100%;
+  }
+
+  .input_class_submit {
+    width: 40%;
+    height: 40px;
+    margin-left: 30%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    align-items: center;
+    background-color: rgb(16, 183, 80);
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+
+  .input_class {
+    margin-top: -5px;
+    height: 40px; /* Smaller input fields */
+    font-size: 18px; /* Adjust font size for better readability */
+  }
+
+  .input_class_selection {
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .logo {
+    width: 120px; /* Reduce logo size */
+    height: 120px;
+    margin: 10px auto; /* Reduce logo margin */
+  }
+
+  .label {
+    margin: -15px 0px -15px 30px;
+    font-size: 25px;
+    padding: 0;
+  }
+
+  .description{
+    font-size: smaller;
+    font-weight: 0px;
+    text-align: justify;
+  }
+
+  
+}
