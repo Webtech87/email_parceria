@@ -22,7 +22,7 @@ form {
   background-color: white;
 }
 
-.input_class {
+.form-control {
   width: 90% !important;
   height: 30px;
   margin-left: 5%;

@@ -33,7 +33,7 @@ class PartnerShipForm(FlaskForm):
             validators.Length(min=4, max=25),
             Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message="O nome pode conter apenas letras e espaços.")
         ],
-        render_kw={"class": "input_class form-control", "placeholder": "Introduza o seu Nome"}
+        render_kw={"class": "form-control", "placeholder": "Introduza o seu Nome"}
     )
     apelido = StringField(
         'Apelido',
@@ -42,7 +42,7 @@ class PartnerShipForm(FlaskForm):
             validators.Length(min=3, max=25),
             Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message="O nome pode conter apenas letras e espaços.")
         ],
-        render_kw={"class": "input_class form-control", "placeholder": "Introduza o seu Apelido"}
+        render_kw={"class": "form-control", "placeholder": "Introduza o seu Apelido"}
     )
     tel = StringField(
     'Telefone',
@@ -52,7 +52,7 @@ class PartnerShipForm(FlaskForm):
         Regexp(r'^\d+$', message="Apenas números são permitidos.")
     ],
     render_kw={
-        "class": "input_class form-control",
+        "class": "form-control",
         "placeholder": "Introduza o seu contacto telefónico",
         "inputmode": "tel",  # Isso ajuda a exibir o teclado numérico no mobile
         "pattern": "\\d*"  # Garante que apenas números sejam aceitos
@@ -64,7 +64,7 @@ class PartnerShipForm(FlaskForm):
             DataRequired(message="Este campo é obrigatório."),
             validators.Email(), validators.Length(min=6, max=35)
         ],
-        render_kw={"class": "input_class form-control", "placeholder": "Introduza o seu Email", "type": "email"}
+        render_kw={"class": "form-control", "placeholder": "Introduza o seu Email", "type": "email"}
     )
     partner_ship_list = SelectField(
     'Parceiro(a)',

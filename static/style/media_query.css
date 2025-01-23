@@ -32,6 +32,17 @@
   .label {
     margin: -15px 0px -15px 30px;
   }
+
+  .cookies p {
+    font-size: 12px;
+  }
+
+  .cookies button {
+    height: 40px;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -51,14 +62,24 @@
   .label {
     margin: -10px 0px -10px 30px;
   }
+
+  .cookies p {
+    font-size: 12px;
+  }
+
+  .cookies button {
+    height: 40px;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+  }
 }
 
 @media (max-width: 500px) {
   form {
-    margin-top: -280px;
     width: 90%; /* Use 90% width for small screens */
     padding: 0px; /* Reduce padding for more space */
-    max-height: 100%;
+    height: 100%;
   }
 
   .input_class_submit {
@@ -75,15 +96,9 @@
   }
 
 
-  .input_class {
-    margin-top: -5px;
-    height: 40px; /* Smaller input fields */
-    font-size: 18px; /* Adjust font size for better readability */
-  }
-
-  .input_class_selection {
-    height: 30px;
-    font-size: 18px;
+  .form-control {
+    height: 30px !important; /* Smaller input fields */
+    font-size: 14px !important; /* Adjust font size for better readability */
   }
 
   .logo {
@@ -93,9 +108,18 @@
   }
 
   .label {
-    margin: -15px 0px -15px 30px;
-    font-size: 25px;
+    font-size: 20px;
     padding: 0;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .input_class_submit {
+    height: 30px;
+    font-size: 16px;
+    border-radius: 10px;
   }
 
   .description{
@@ -104,5 +128,12 @@
     text-align: justify;
   }
 
+  .cookies {
+    padding: 5px 0px 5px 0px;
+  }
+
+  .cookies p {
+    line-height: 15px;
+  }
   
 }
