@@ -33,7 +33,7 @@ class PartnerShipForm(FlaskForm):
             validators.Length(min=4, max=25),
             Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message="O nome pode conter apenas letras e espaços.")
         ],
-        render_kw={"class": "input_class", "placeholder": "Introduza o seu Nome"}
+        render_kw={"class": "input_class form-control", "placeholder": "Introduza o seu Nome"}
     )
     apelido = StringField(
         'Apelido',
@@ -42,7 +42,7 @@ class PartnerShipForm(FlaskForm):
             validators.Length(min=3, max=25),
             Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message="O nome pode conter apenas letras e espaços.")
         ],
-        render_kw={"class": "input_class", "placeholder": "Introduza o seu Apelido"}
+        render_kw={"class": "input_class form-control", "placeholder": "Introduza o seu Apelido"}
     )
     tel = StringField(
     'Telefone',
@@ -52,7 +52,7 @@ class PartnerShipForm(FlaskForm):
         Regexp(r'^\d+$', message="Apenas números são permitidos.")
     ],
     render_kw={
-        "class": "input_class",
+        "class": "input_class form-control",
         "placeholder": "Introduza o seu contacto telefónico",
         "inputmode": "tel",  # Isso ajuda a exibir o teclado numérico no mobile
         "pattern": "\\d*"  # Garante que apenas números sejam aceitos
@@ -64,14 +64,14 @@ class PartnerShipForm(FlaskForm):
             DataRequired(message="Este campo é obrigatório."),
             validators.Email(), validators.Length(min=6, max=35)
         ],
-        render_kw={"class": "input_class", "placeholder": "Introduza o seu Email", "type": "email"}
+        render_kw={"class": "input_class form-control", "placeholder": "Introduza o seu Email", "type": "email"}
     )
     partner_ship_list = SelectField(
     'Parceiro(a)',
     choices=[("", "Selecione um parceiro(a)")] + [(partner, partner) for partner in partners_list],
     validators=[DataRequired(message="Por favor, selecione um parceiro(a).")],
     render_kw={
-        "class": "input_class_selection",
+        "class": "input_class_selection form-control",
         "placeholder": "Selecione um parceiro(a)"
     }
 )
@@ -79,17 +79,17 @@ class PartnerShipForm(FlaskForm):
         'Procedimento',
         choices= [("", "Selecione uma procedimento")] +[(procedure, procedure) for procedure in procedure_list],
         validators=[DataRequired(message="Por favor, selecione um procedimento).")],
-        render_kw={"class": "input_class_selection"}
+        render_kw={"class": "input_class_selection form-control"}
     )
     checkbox = BooleanField(
         'Eu concordo em partilhar minhas informações de contato com o propósito de ser contactado pela Santiclinic',
         default=False,
         validators=[DataRequired(message="Por favor, aceite os termos de responsabilidade.).")],
-        render_kw={"class": "custom_checkbox"}
+        render_kw={"class": "custom_checkbox form-check-input"}
     )
     submit = SubmitField(
         "Enviar",
-        render_kw={"class": "input_class_submit"}
+        render_kw={"class": "input_class_submit btn-success"}
     )
 
 # Create or load Excel file and save information from the form

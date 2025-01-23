@@ -43,12 +43,13 @@ form {
 }
 
 .input_class {
-  width: 90%;
+  width: 90% !important;
   height: 30px;
-  margin-left: 4%;
+  margin-left: 5%;
+  margin-top: 5px;
   font-size: 16px;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 10px !important;
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -60,7 +61,7 @@ form {
 /* Hover effect for the inputs */
 .input_class:hover {
   background-color: #f1f1f1; /* Light gray background on hover */
-  border-color: #28a745; /* Change border color on hover */
+  border-color: #6a9ecf; /* Change border color on hover */
 }
 
 .logo {
@@ -102,17 +103,17 @@ form {
 
 .input_class_submit {
   width: 30%;
-  height: 50px;
+  height: 40px;
   margin-left: 35%;
   margin-top: 25px;
   margin-bottom: 25px;
-  font-size: 30px;
+  font-size: 25px;
   align-items: center;
   background-color: rgb(16, 183, 80);
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
   font-family: "Roboto", serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -122,11 +123,12 @@ form {
 }
 
 .input_class_selection {
-  width: 91%;
+  width: 90% !important;
   margin-left: 5%;
+  margin-top: 5px;
   height: 40px;
   font-size: 16px;
-  border-radius: 15px;
+  border-radius: 10px !important;
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -139,17 +141,19 @@ form {
   margin: 0px 0px 0px 30px;
   font-size: 25px;
   padding: 0;
-  font-family: "Roboto", serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Roboto", serif !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  color: black;
 }
 
-.chack_input {
+.form-check {
   width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
+
 .custom_checkbox {
   transform: scale(2);
   appearance: none;
@@ -219,16 +223,22 @@ label[for="checkbox"] {
   /*display: none;*/
 }
 
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .cookies {
   min-height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .cookies p {
+  text-align: center;
   margin-left: 10px;
   font-family: "Roboto", serif;
   font-weight: 300;
@@ -254,6 +264,7 @@ label[for="checkbox"] {
   font-family: "Roboto", serif;
   font-weight: 300;
   font-style: normal;
+  margin-left: auto !important;
 }
 
 /*success message style*/ 
