@@ -7,6 +7,9 @@ from form.secret_CSRF import MAIL_SENDER, MAIL_PASSWORD, TO_EMAIL_PARSERIA
 from form.form import PartnerShipForm
 from form.secret_CSRF import SECRET_KEY
 
+# import function from form.py
+from form.form import save_to_excel
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 
@@ -21,6 +24,10 @@ def index():
         email = form.email.data
         partner = form.partner_ship_list.data
         procedure = form.procedure_list.data
+
+        # Send to excel
+        data = [nome, apelido, tel, email, partner, procedure]
+        save_to_excel(data)
 
         # Create the email content
         msg = MIMEMultipart()

@@ -11,50 +11,37 @@ html {
   background-attachment: fixed; /* Makes the background stay fixed during scroll */
   display: flex;
   justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Aligns content to the top */
-  padding-top: 20px; /* Small padding at the top to avoid content being too close to the top */
+  align-items: flex-start; /* Aligns items to the start of the cross-axis (top in this case) */
   box-sizing: border-box; /* Ensures padding and margin are considered in the element's total width/height */
-}
-
-/* Style the image container */
-.image-container {
-  background: none; /* Ensure no background image here */
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Make the image cover the full container */
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 form {
   width: 30%;
-  margin: -15rem auto; /* 15rem top and bottom margin, auto for left/right */
   border: 3px solid white;
   border-radius: 30px;
   background-color: white;
 }
 
-.input_class {
-  width: 90%;
+.form-control {
+  width: 90% !important;
   height: 30px;
-  margin-left: 4%;
-  font-size: 25px;
+  margin-left: 5%;
+  margin-top: 5px;
+  font-size: 16px;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 10px !important;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* Hover effect for the inputs */
 .input_class:hover {
-  background-color: #f1f1f1; /* Light gray background on hover */
-  border-color: #28a745; /* Change border color on hover */
+  background-color: #f7f7f7; /* Light gray background on hover */
+  border-color: #6a9ecf; /* Change border color on hover */
 }
 
 .logo {
@@ -93,17 +80,20 @@ form {
   border-radius: 50%;
 }
 
-.input_class_submit {
+.input_class_submit{
   width: 30%;
-  height: 50px;
+  height: 40px;
   margin-left: 35%;
   margin-top: 25px;
   margin-bottom: 25px;
-  font-size: 30px;
+  font-size: 20px;
   align-items: center;
-  background-color: rgb(16, 183, 80);
-  border-radius: 15px;
+  background-color: rgb(10, 95, 43);
+  border-radius: 10px;
   cursor: pointer;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Add hover effect */
@@ -112,25 +102,37 @@ form {
 }
 
 .input_class_selection {
-  width: 91%;
+  width: 90% !important;
   margin-left: 5%;
+  margin-top: 5px;
   height: 40px;
-  font-size: 25px;
-  border-radius: 15px;
+  font-size: 16px;
+  border-radius: 10px !important;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .label {
   margin: 0px 0px 0px 30px;
   font-size: 25px;
   padding: 0;
+  font-family: "Roboto", serif !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  color: black;
 }
 
-.chack_input {
+.form-check {
   width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
+
 .custom_checkbox {
   transform: scale(2);
   appearance: none;
@@ -142,6 +144,9 @@ form {
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .suxcess_msg {
@@ -171,11 +176,20 @@ form {
 label {
   font-size: 16px;
   cursor: pointer;
-  margin-left: 10px; 
 }
 
 .description {
+  display: flex;
+  justify-items: center;
+  align-items: center;
   width: 90%;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+label[for="checkbox"] {
+  font-size: 13px;
 }
 
 #cookies {
@@ -188,13 +202,29 @@ label {
   /*display: none;*/
 }
 
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
 .cookies {
   min-height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.cookies p {
+  margin: 0;
+  padding-left: 10px;
+  line-height: 70px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
 }
 
 .cookies a {
@@ -212,6 +242,11 @@ label {
   border: 3px solid white;
   background-color: black;
   color: white;
+  margin-right: 10px;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-left: auto !important;
 }
 
 /*success message style*/ 

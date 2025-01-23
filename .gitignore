@@ -1,5 +1,8 @@
-__pycache__/
-
+# Created by venv; see https://docs.python.org/3/library/venv.html
 .venv/
 
 client_info.xlsx
+
+__pycache__/
+
+form/__pycache__/
