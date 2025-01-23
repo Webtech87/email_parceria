@@ -11,32 +11,12 @@ html {
   background-attachment: fixed; /* Makes the background stay fixed during scroll */
   display: flex;
   justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Aligns content to the top */
-  padding-top: 20px; /* Small padding at the top to avoid content being too close to the top */
+  align-items: flex-start; /* Aligns items to the start of the cross-axis (top in this case) */
   box-sizing: border-box; /* Ensures padding and margin are considered in the element's total width/height */
-}
-
-/* Style the image container */
-.image-container {
-  background: none; /* Ensure no background image here */
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Make the image cover the full container */
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 form {
   width: 30%;
-  margin: -15rem auto; /* 15rem top and bottom margin, auto for left/right */
   border: 3px solid white;
   border-radius: 30px;
   background-color: white;
@@ -60,7 +40,7 @@ form {
 
 /* Hover effect for the inputs */
 .input_class:hover {
-  background-color: #f1f1f1; /* Light gray background on hover */
+  background-color: #f7f7f7; /* Light gray background on hover */
   border-color: #6a9ecf; /* Change border color on hover */
 }
 
@@ -69,7 +49,6 @@ form {
   height: 150px;
   margin: 25px auto;
   animation: bounce 3s infinite; /* Apply the animation */
-  margin-top: 80px;
 }
 
 /* Keyframes for bounce animation */
@@ -101,19 +80,19 @@ form {
   border-radius: 50%;
 }
 
-.input_class_submit {
+.input_class_submit{
   width: 30%;
   height: 40px;
   margin-left: 35%;
   margin-top: 25px;
   margin-bottom: 25px;
-  font-size: 25px;
+  font-size: 20px;
   align-items: center;
-  background-color: rgb(16, 183, 80);
+  background-color: rgb(10, 95, 43);
   border-radius: 10px;
   cursor: pointer;
   font-family: "Roboto", serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -226,6 +205,7 @@ label[for="checkbox"] {
 .container {
   margin: 0 !important;
   padding: 0 !important;
+  max-width: 100% !important;
 }
 
 .cookies {
@@ -238,8 +218,9 @@ label[for="checkbox"] {
 }
 
 .cookies p {
-  text-align: center;
-  margin-left: 10px;
+  margin: 0;
+  padding-left: 10px;
+  line-height: 70px;
   font-family: "Roboto", serif;
   font-weight: 300;
   font-style: normal;
