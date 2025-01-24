@@ -76,6 +76,10 @@
 }
 
 @media (max-width: 500px) {
+  body {
+    padding: 3% 0% 3% 0%;
+  }
+
   form {
     width: 90%; /* Use 90% width for small screens */
     padding: 0px; /* Reduce padding for more space */
@@ -102,8 +106,8 @@
   }
 
   .logo {
-    width: 120px; /* Reduce logo size */
-    height: 120px;
+    width: 90px; /* Reduce logo size */
+    height: 90px;
     margin: 10px auto; /* Reduce logo margin */
   }
 
@@ -128,12 +132,20 @@
     text-align: justify;
   }
 
+  .form-check-label {
+    font-size: 11px !important;
+  }
+
   .cookies {
     padding: 5px 0px 5px 0px;
   }
 
   .cookies p {
     line-height: 15px;
+  }
+
+  .error, .success {
+    font-size: 12px;
   }
   
 }
