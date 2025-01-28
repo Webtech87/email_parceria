@@ -6,3 +6,7 @@ client_info.xlsx
 __pycache__/
 
 form/__pycache__/
+
+credentials/
+
+form/secret_CSRF.py
