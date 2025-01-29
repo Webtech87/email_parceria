@@ -1,23 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
-from wtforms import BooleanField
+from flask import Flask, render_template, redirect, url_for, flash
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from form.secret_CSRF import MAIL_SENDER, MAIL_PASSWORD, TO_EMAIL_PARSERIA
-from form.form import PartnerShipForm, save_to_excel, get_credentials, create_or_get_sheet, add_data_to_sheet, SCOPES # import functions from form.py
-from form.secret_CSRF import SECRET_KEY, CLIENT_SECRET_FILE
-import threading
-import multiprocessing
+from form.form import PartnerShipForm, save_to_excel, create_or_get_sheet, add_data_to_sheet # import functions from form.py
+from form.secret_CSRF import SECRET_KEY
 
-#imports to authenticate Google credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
 
 app = Flask(__name__)
-oauth_app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
-oauth_app.config['SECRET_KEY'] = SECRET_KEY
-
-REDIRECT_URI = 'http://localhost:5000/oauth2callback'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -124,58 +115,9 @@ def index():
 
     return render_template('index.html', form=form)
 
-@oauth_app.route('/oauth2callback')
-def oauth2callback():
-    # The flow is already initialized with the redirect URI
-    flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES, redirect_uri=REDIRECT_URI)
-    authorization_response = request.url
-    flow.fetch_token(authorization_response=authorization_response)
-
-    if not flow.credentials:
-        flash("Failed to fetch the credentials!", "error")
-        return redirect(url_for('index'))
-
-    credentials = flow.credentials
-    # Save credentials to session for future use
-    session['credentials'] = credentials.to_json()
-
-    flash("Autenticação bem-sucedida!", "success")
-    return redirect(url_for('index'))
-    
-'''if __name__ == '__main__':
-    import threading
-
-    # Function to run the OAuth app on port 5000
-    def run_oauth_app():
-        print("Starting OAuth app on port 5000")
-        oauth_app.run(port=5000, use_reloader=False)
-
-    # Start the OAuth app in a separate thread
-    oauth_thread = threading.Thread(target=run_oauth_app)
-    oauth_thread.daemon = True  # Ensures it exits when the main program exits
-    oauth_thread.start()
-
-    # Run the main Flask app on port 5001
-    print("Starting main app on port 5001")
-    app.run(port=5001, use_reloader=False)'''
-
-# Running in different processes for testing
-def run_oauth_app():
-    print("Starting OAuth app on port 5000")
-    oauth_app.run(debug=True, port=5000, use_reloader=False)
-
-def run_main_app():
-    print("Starting Main app on port 5001")
-    app.run(debug=True, port=5001, use_reloader=False)
+@app.route('/test')
+def test():
+    return "This is a test!"
 
 if __name__ == '__main__':
-    # Start both Flask apps in separate processes
-    oauth_process = multiprocessing.Process(target=run_oauth_app)
-    main_process = multiprocessing.Process(target=run_main_app)
-
-    oauth_process.start()
-    main_process.start()
-
-    # Wait for both processes to finish (this will allow them to run independently)
-    oauth_process.join()
-    main_process.join()
+    app.run(debug=True)

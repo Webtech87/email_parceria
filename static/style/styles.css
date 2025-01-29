@@ -28,7 +28,8 @@ body::before {
 }
 
 form {
-  width: 30%;
+  width: 40%;
+  min-height: 100%;
   border: 3px solid white;
   border-radius: 30px;
   background-color: white;

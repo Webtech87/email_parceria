@@ -1,12 +1,7 @@
-from flask import session
-from random import choices
-from select import select
-from wtforms import BooleanField
+from wtforms import BooleanField, SelectField, StringField, validators
 from flask_wtf import FlaskForm
-from wtforms import SelectField
-from wtforms.fields.simple import SubmitField, TextAreaField, EmailField
-from wtforms import Form, StringField, validators
-from wtforms.validators import DataRequired, Email, Regexp
+from wtforms.fields.simple import SubmitField, EmailField
+from wtforms.validators import DataRequired, Regexp
 
 # imports for working with excel
 import os
@@ -16,9 +11,8 @@ from openpyxl.styles import Font
 # import necessary to implement Google Sheets
 from .secret_CSRF import CLIENT_SECRET_FILE
 from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
-from google.auth.credentials import Credentials
+from google.oauth2 import service_account
+from googleapiclient.errors import HttpError
 
 
 partners_list = [
@@ -128,48 +122,54 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapi
 
 # Get credentials (you should have your OAuth setup already)
 def get_credentials():
-    credentials = None
-    credentials = None
-    if 'credentials' in session:
-        credentials = Credentials.from_authorized_user_info(session['credentials'], SCOPES)
-
-    # If no valid credentials, initiate the OAuth flow
-    if not credentials or not credentials.valid:
-        if credentials and credentials.expired and credentials.refresh_token:
-            credentials.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            credentials = flow.run_local_server(port=5000)
-
-        # Save credentials to session for future use
-        session['credentials'] = credentials.to_json()
+    credentials = service_account.Credentials.from_service_account_file(CLIENT_SECRET_FILE, scopes=SCOPES)
 
     return credentials
 
-def search_sheet_by_name(service, sheet_name="clients_info"):
+def search_spreadsheet_by_name(service, spreadsheet_name="clients_info"):
     # Search for a sheet by name in Google Drive.
-    query = f"name = '{sheet_name}' and mimeType = 'application/vnd.google-apps.spreadsheet'"
+    query = f"name = '{spreadsheet_name}' and mimeType = 'application/vnd.google-apps.spreadsheet'"
     results = service.files().list(q=query, fields="files(id, name)").execute()
-    sheets = results.get('files', [])
+    spreadsheets = results.get('files', [])
     
-    if sheets:
-        return sheets[0]['id']  # Return the first sheet's ID found
+    if spreadsheets:
+        return spreadsheets[0]['id']  # Return the first sheet's ID found
     else:
         return None  # No sheet found
+    
+def share_sheet_with_email(sheet_id, email='felipe.piano@gmail.com'):
+    # Share the sheet with your personal Google account
+    credentials = service_account.Credentials.from_service_account_file(CLIENT_SECRET_FILE, scopes=SCOPES)
+    drive_service = build('drive', 'v3', credentials=credentials)
+
+    permission = {
+        'type': 'user',
+        'role': 'writer',  # Use 'writer' for edit access, 'reader' for view access
+        'emailAddress': email
+    }
+
+    # Apply the permission (share the sheet)
+    drive_service.permissions().create(
+        fileId=sheet_id,
+        body=permission,
+        sendNotificationEmail=False  # Change to True if you want an email notification
+    ).execute()
+
+    print(f'Sheet shared with {email}')
 
 # Create a new sheet if it doesn't exist, or return the existing sheet's ID.
-def create_or_get_sheet(sheet_name='clients_info'):
+def create_or_get_sheet(sheet_name='Sheet1'):
     credentials = get_credentials()
 
     # First, use the Drive API to check for an existing sheet
     drive_service = build('drive', 'v3', credentials=credentials)
-    sheet_id = search_sheet_by_name(drive_service, sheet_name)
+    sheet_id = search_spreadsheet_by_name(drive_service, 'clients_info_new')
     
     if not sheet_id:
         # If no sheet exists, create a new one using the Sheets API
         sheets_service = build('sheets', 'v4', credentials=credentials)
         spreadsheet = {
-            'properties': {'title': sheet_name}
+            'properties': {'title': 'clients_info_new'}
         }
         sheet = sheets_service.spreadsheets().create(body=spreadsheet, fields='spreadsheetId').execute()
         sheet_id = sheet['spreadsheetId']
@@ -189,21 +189,32 @@ def create_or_get_sheet(sheet_name='clients_info'):
             body=body
         ).execute()
 
+        share_sheet_with_email(sheet_id)
+
+         # Wait for the sheet to be fully created and populated
+        print(f"Headers inserted into sheet: {sheet_name}")
+
+    else:
+        print(f"Sheet '{sheet_name}' already exists with ID: {sheet_id}")
+        share_sheet_with_email(sheet_id)
+
     return sheet_id
 
-def add_data_to_sheet(sheet_id, data):
+def add_data_to_sheet(sheet_id, data, sheet_name='Sheet1'):
     # Append data to the given Google Sheet.
     credentials = get_credentials()
     service = build('sheets', 'v4', credentials=credentials)
     
     # Prepare data to be added
     body = {'values': [data]}
-    
+
+    range_ = f'{sheet_name}'
+
     # Append data to the first sheet in the document
     service.spreadsheets().values().append(
         spreadsheetId=sheet_id,
-        range='clients_info',  # Adjust this range if needed
-        valueInputOption='RAW',
-        insertDataOption='INSERT_ROWS',  # Ensure rows are added, not overwritten
+        range=range_,  # Adjust this range if needed
+        valueInputOption='RAW',  # Ensure rows are added, not overwritten
+        insertDataOption='INSERT_ROWS',
         body=body
     ).execute()
