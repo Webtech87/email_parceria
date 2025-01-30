@@ -18,45 +18,48 @@
   
   </head>
   <body>
-    <form method="post" action="/">
-      <header_form>
-        <div class="logo">
-          <img src="/static/img/photo_2024-11-15_17-02-08 (2).jpg" alt="LOGO" />
+    <div class="form-wrapper">
+      <form method="post" action="/">
+        <header_form>
+          <div class="logo">
+            <img src="/static/img/photo_2024-11-15_17-02-08 (2).jpg" alt="LOGO" />
+          </div>
+
+          <!-- Display success and error messages -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div class="message-container">
+                {% for category, message in messages %}
+                  <div class="flash-message {{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endwith %}
+
+        </header_form>
+
+        {% for field in form %}
+        {% if field.name == 'submit' or field.name == 'csrf_token' %}
+        <div class="{{ 'special-class' if field.name == 'submit' else 'hidden-class' }}">
+          {{ field }}
         </div>
-
-        <!-- Display success and error messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            <div class="message-container">
-              {% for category, message in messages %}
-                <div class="flash-message {{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% endwith %}
-
-      </header_form>
-
-      {% for field in form %}
-      {% if field.name == 'submit' or field.name == 'csrf_token' %}
-      <div class="{{ 'special-class' if field.name == 'submit' else 'hidden-class' }}">
-        {{ field }}
-      </div>
-      {% elif field.name == 'checkbox' %}
-      <div class="form-check">
-        {{ field(class="form-check-input") }}
-        <label class="form-check-label" for="{{ field.id }}">
-          {{ field.label.text }}
-        </label>
-      </div>
-      {% else %}
-      <p class="label">{{ field.label }}</p>
-      <p>{{ field }}</p>
-      {% endif %}
-      {% endfor %}
-    </form>
+        {% elif field.name == 'checkbox' %}
+        <div class="form-check">
+          {{ field(class="form-check-input") }}
+          <label class="form-check-label" for="{{ field.id }}">
+            {{ field.label.text }}
+          </label>
+        </div>
+        {% else %}
+        <p class="label">{{ field.label }}</p>
+        <p>{{ field }}</p>
+        {% endif %}
+        {% endfor %}
+      </form>
+    </div>
+    
 
     <div id="cookies">
       <div class="container">

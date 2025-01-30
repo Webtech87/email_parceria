@@ -13,6 +13,7 @@ html {
   justify-content: center; /* Centers content horizontally */
   align-items: flex-start; /* Aligns items to the start of the cross-axis (top in this case) */
   box-sizing: border-box; /* Ensures padding and margin are considered in the element's total width/height */
+  padding: 2% 0;
 }
 
 body::before {
@@ -22,14 +23,22 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent overlay */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent overlay */
   pointer-events: none; /* Ensures the overlay doesn't block content interactions */
   z-index: 1; /* Ensure it's above the background image */
 }
 
+.form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 3% 0; /* Add 2% padding to the top and bottom */
+  box-sizing: border-box;
+}
+
 form {
   width: 40%;
-  min-height: 100%;
   border: 3px solid white;
   border-radius: 30px;
   background-color: white;
