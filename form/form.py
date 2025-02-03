@@ -120,7 +120,7 @@ def save_to_excel(data):
 # Google Sheets logic
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
-# Get credentials (you should have your OAuth setup already)
+# Get credentials
 def get_credentials():
     credentials = service_account.Credentials.from_service_account_file(CLIENT_SECRET_FILE, scopes=SCOPES)
 
@@ -138,7 +138,7 @@ def search_spreadsheet_by_name(service, spreadsheet_name="clients_info"):
         return None  # No sheet found
     
 def share_sheet_with_email(sheet_id, email='felipe.piano@gmail.com'):
-    # Share the sheet with your personal Google account
+    # Share the sheet with a Google account
     credentials = service_account.Credentials.from_service_account_file(CLIENT_SECRET_FILE, scopes=SCOPES)
     drive_service = build('drive', 'v3', credentials=credentials)
 
@@ -181,7 +181,7 @@ def create_or_get_sheet(sheet_name='Sheet1'):
         body = {'values': [headers]}
 
         # Update the first row with headers
-        range_ = f'{sheet_name}!A1:F1'  # Adjust this range to your needs 
+        range_ = f'{sheet_name}!A1:F1'
         sheets_service.spreadsheets().values().update(
             spreadsheetId=sheet_id,
             range=range_,

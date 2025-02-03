@@ -1,31 +1,44 @@
-# Mudanças feitas por Felipe
+# Changes Made by Felipe
 
 ## Backend
 
-### Em form/form.py
-* Import de openpyxl
-* Criação de função save_to_excel que cria um novo ficheiro excel, ou carrega se já existente, e armazena as informações obtidas no formulário
-* Dentro de class PartnerShipForm(FlaskForm), houve mudança do nome da class dentro de render_kw: de input_class para form-control para melhor uso do Bootstrap no frontend
+### In form/form.py
+* Imported openpyxl
+* Created the save_to_excel function, which creates a new Excel file or loads an existing one and stores the form data
+* In the PartnerShipForm(FlaskForm) class, changed the class name inside render_kw from input_class to form-control for better Bootstrap integration in the frontend
+* Implemented Google Sheets integration using the **Google Sheets API** and **Google Drive API**.
+* Added authentication with a **service account** to securely access and modify Google Sheets.
+* Developed functions to:
+  * **Search for an existing spreadsheet** by name in Google Drive.
+  * **Create a new spreadsheet** if it doesn’t exist and insert predefined headers.
+  * **Share the spreadsheet** with a specified email address with edit permissions.
+  * **Append form data** to the sheet dynamically.
+* Ensured proper access control and streamlined data entry for storing client information efficiently.
 
-### Em app.py
-* Import da função save_to_excel
-* Criação da variável "data" com os dados a extrair do formulário
-* Chamada da função save_to_excel tendo como parametro a variável "data"
+
+### In app.py
+* Imported functions from form.py
+* Created the "data" variable to extract form data
+* Saves form data to an Excel file using save_to_excel(data).  
+* Sends form data to Google Sheets for cloud storage and accessibility.  
+* Utilizes create_or_get_sheet() to create or retrieve the Google Sheet.  
+* Appends new data to the sheet using add_data_to_sheet(sheet_id, data).  
+* Implements error handling to catch and display any Google Sheets-related issues.
 
 ### Em requirements.txt
-* Correção nome do ficheiro de requirments.txt para requirements.txt
-* Adição de versão de openpyxl
+* Fixed the file name from requirments.txt to requirements.txt
+* Added versions of openpyxl and google libraries for authentication and API access
 
-### .gitignore adicionado ao main
+### .gitignore added to the main branch
 
 ## Frontend
 
-### Em styles.css e media_query.css
-* Uso de framework Bootstrap 4 (Bootswatch Spacelab)
-* Uso de fonte "Roboto" para visual mais profissional
-* Retirada de margens de valores negativos para impedir que o formulário e seus elementos ultrapassassem limite do ecrã
-* Mudança de align-items: center para align-items: flex-start no body
-* Alinhamento do label com o input
-* Uso de padding dentro do input para melhor visualização do placeholder
-* Centralização e mudança no tamanho da fonte do texto "Eu concordo..."
-* Mudanças necessárias em alguns elementos para responsividade para tablet e telemóvel
+### In styles.css and media_query.css
+* Implemented Bootstrap 4 (Bootswatch Spacelab)
+* Used the "Roboto" font for a more professional look
+* Removed negative margin values to prevent the form and its elements from exceeding the screen limits
+* Changed align-items: center to align-items: flex-start in body
+* Aligned the label with the input field
+* Added padding inside the input field for better placeholder visibility
+* Centered and resized the font of the text "Eu concordo..."
+* Made necessary adjustments for responsiveness on tablets and mobile devices
