@@ -25,7 +25,9 @@ procedure_list = [
     'Micro blefaroplastia superior',
     'Micro blefaroplastia inferior',
     'Lifting do terço médio e inferior',
-    'Micro cervicoplastia (papada e pescoço)'
+    'Micro cervicoplastia (papada e pescoço)',
+    'Micro implante de sobrancelha',
+    'Laser CO2'
 ]
 
 class PartnerShipForm(FlaskForm):
