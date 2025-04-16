@@ -1,87 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/style/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../static/style/media_query.css"/>
-    <link rel="icon" type="image/png" href="/static/img/diamond.png" />
-    <title>Microcirurgia Formulario</title>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/style/styles.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/style/media_query.css"/>
+  <link rel="icon" type="image/png" href="/static/img/diamond.png"/>
+  <title>Microcirurgia Formulario</title>
 
-    <!-- Fonte Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Fonte Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
-    <!-- Bootstrap Spacelab -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/spacelab/bootstrap.min.css" integrity="sha384-F1AY0h4TrtJ8OCUQYOzhcFzUTxSOxuaaJ4BeagvyQL8N9mE4hrXjdDsNx249NpEc" crossorigin="anonymous">
-  
-  </head>
-  <body>
-    <div class="form-wrapper">
-      <form method="post" action="/">
-        <header_form>
-          <div class="logo">
-            <img src="/static/img/photo_2024-11-15_17-02-08 (2).jpg" alt="LOGO" />
-          </div>
+  <!-- Bootstrap Spacelab -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/spacelab/bootstrap.min.css"
+        integrity="sha384-F1AY0h4TrtJ8OCUQYOzhcFzUTxSOxuaaJ4BeagvyQL8N9mE4hrXjdDsNx249NpEc" crossorigin="anonymous">
 
-          <!-- Display success and error messages -->
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              <div class="message-container">
-                {% for category, message in messages %}
-                  <div class="flash-message {{ category }}">
-                    {{ message }}
-                  </div>
-                {% endfor %}
+</head>
+<body>
+<div class="form-wrapper">
+  <form method="post" action="/">
+    <header_form>
+      <div class="change_lang_container">
+        <a href="{{ url_for('set_language', lang_code='en') }}">🇬🇧 GB</a>
+        <a href="{{ url_for('set_language', lang_code='pt') }}">🇵🇹 PT</a>
+      </div>
+      <div class="logo">
+        <img src="/static/img/photo_2024-11-15_17-02-08 (2).jpg" alt="LOGO"/>
+      </div>
+
+      <!-- Display success and error messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="message-container">
+            {% for category, message in messages %}
+              <div class="flash-message {{ category }}">
+                {{ message }}
               </div>
-            {% endif %}
-          {% endwith %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
 
-        </header_form>
+    </header_form>
 
-        {% for field in form %}
-        {% if field.name == 'submit' or field.name == 'csrf_token' %}
+    {% for field in form %}
+      {% if field.name == 'submit' or field.name == 'csrf_token' %}
         <div class="{{ 'special-class' if field.name == 'submit' else 'hidden-class' }}">
           {{ field }}
         </div>
-        {% elif field.name == 'checkbox' %}
+      {% elif field.name == 'checkbox' %}
         <div class="form-check">
           {{ field(class="form-check-input") }}
           <label class="form-check-label" for="{{ field.id }}">
             {{ field.label.text }}
           </label>
         </div>
-        {% else %}
+      {% else %}
         <p class="label">{{ field.label }}</p>
         <p>{{ field }}</p>
-        {% endif %}
-        {% endfor %}
-      </form>
-    </div>
-    
-
-    <div id="cookies">
-      <div class="container">
-        <div class="subcontainer">
-          <div class="cookies">
-            <p>
-              Este site utiliza cookies para garantir que você tenha a melhor
-              experiência em nosso site.
-              <a
-                href="https://europa.eu/youreurope/citizens/consumers/internet-telecoms/data-protection-online-privacy/index_pt.htm"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Mais informações.</a
-              >
-            </p>
-            <button id="cookies-btn" class="blinking">Sim, aceito!</button>
-          </div>
-        </div>
+      {% endif %}
+    {% endfor %}
+  </form>
+</div>
+<div id="cookies">
+  <div class="container">
+    <div class="subcontainer">
+      <div class="cookies">
+        <p>
+          Este site utiliza cookies para garantir que você tenha a melhor
+          experiência em nosso site.
+          <a
+            href="https://europa.eu/youreurope/citizens/consumers/internet-telecoms/data-protection-online-privacy/index_pt.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Mais informações.</a
+          >
+        </p>
+        <button id="cookies-btn" class="blinking">Sim, aceito!</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <script src="/static/js/coockies_script.js"></script>
-    <script src="/script.js"></script>
-  </body>
+<script src="/static/js/coockies_script.js"></script>
+<script src="/script.js"></script>
+</body>
 </html>
