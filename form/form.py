@@ -16,22 +16,20 @@ from flask_babel import lazy_gettext as _
 
 # Убедитесь, что partners_list и procedure_list определены глобально
 partners_list = [
-    "Selecione um parceiro(a)",
-    "Claudia Vieira",
-    "Elia Camões",
-    "Márcia Monteiro Micropigmentação"
+    "POLIÉSTETICA",
+    "CLAUDIA VIEIRA",
+    "ELIA CAMÕES",
 ]
 
 procedure_list = [
-    "Selecione uma procedimento",
-    "Microcirurgia cosmética Consulta",
-    "Micro lifting de sobrancelha",
-    "Micro blefaroplastia superior",
-    "Micro blefaroplastia inferior",
-    "Lifting do terço médio e inferior",
-    "Micro cervicoplastia (papada e pescoço)",
-    "Micro implante de sobrancelha",
-    "Laser CO2"
+    _("Microcirurgia cosmética Consulta"),
+    _("Micro lifting de sobrancelha"),
+    _("Micro blefaroplastia superior"),
+    _("Micro blefaroplastia inferior"),
+    _("Lifting do terço médio e inferior"),
+    _("Micro cervicoplastia (papada e pescoço)"),
+    _("Micro implante de sobrancelha"),
+    _("Laser CO2")
 ]
 
 

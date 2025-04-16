@@ -28,6 +28,14 @@ body::before {
   z-index: 1; /* Ensure it's above the background image */
 }
 
+.change_lang_container{
+  width: 100px;
+  color: #6a9ecf;
+  margin: 10px auto ;
+  display: flex;
+  justify-content: space-around;
+}
+
 .form-wrapper {
   width: 100%;
   display: flex;

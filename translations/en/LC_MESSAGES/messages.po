@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-16 13:45+0100\n"
+"POT-Creation-Date: 2025-04-16 15:24+0100\n"
 "PO-Revision-Date: 2025-04-16 13:46+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,110 +18,144 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:93
+#: app.py:102
 msgid "Parceria SantiClinic"
 msgstr "SantiClinic Partnership"
 
-#: app.py:94
+#: app.py:103
 msgid "Dados do Cliente"
 msgstr "Client Data"
 
-#: app.py:95 form/form.py:40
+#: app.py:104 form/form.py:38
 msgid "Nome"
 msgstr "Name"
 
-#: app.py:96 form/form.py:49
+#: app.py:105 form/form.py:47
 msgid "Apelido"
 msgstr "Surname"
 
-#: app.py:97
+#: app.py:106
 msgid "Contactos"
 msgstr "Contacts"
 
-#: app.py:98 form/form.py:58
+#: app.py:107 form/form.py:56
 msgid "Telefone"
 msgstr "Phone"
 
-#: app.py:100
+#: app.py:109
 msgid "Detalhes"
 msgstr "Details"
 
-#: app.py:101 form/form.py:81
+#: app.py:110 form/form.py:79
 msgid "Parceiro(a)"
 msgstr "Partner"
 
-#: app.py:102 form/form.py:90
+#: app.py:111 form/form.py:88
 msgid "Procedimento"
 msgstr "Procedure"
 
-#: app.py:103
+#: app.py:112
 msgid "Dados preenchidos no formulario SantiClinic."
 msgstr "Data filled out in the SantiClinic form."
 
-#: form/form.py:42 form/form.py:51 form/form.py:60 form/form.py:74
+#: form/form.py:25
+msgid "Microcirurgia cosmética Consulta"
+msgstr "Cosmetic Micro-Surgery Consultation"
+
+#: form/form.py:26
+msgid "Micro lifting de sobrancelha"
+msgstr "Micro Eyebrow Lifting"
+
+#: form/form.py:27
+msgid "Micro blefaroplastia superior"
+msgstr "Upper Micro Blepharoplasty"
+
+#: form/form.py:28
+msgid "Micro blefaroplastia inferior"
+msgstr "Lower Micro Blepharoplasty"
+
+#: form/form.py:29
+msgid "Lifting do terço médio e inferior"
+msgstr "Mid and Lower Third Lifting"
+
+#: form/form.py:30
+msgid "Micro cervicoplastia (papada e pescoço)"
+msgstr "Micro Cervicoplasty (Double Chin and Neck)"
+
+#: form/form.py:31
+msgid "Micro implante de sobrancelha"
+msgstr "Micro Eyebrow Implant"
+
+#: form/form.py:32
+msgid "Laser CO2"
+msgstr "CO2 Laser"
+
+
+#: form/form.py:40 form/form.py:49 form/form.py:58 form/form.py:72
 msgid "Este campo é obrigatório."
 msgstr "This field is required."
 
-#: form/form.py:44
+#: form/form.py:42
 msgid "O nome pode conter apenas letras и espaços."
 msgstr "The name can only contain letters and spaces."
 
-#: form/form.py:46
+#: form/form.py:44
 msgid "Introduza o seu Nome"
 msgstr "Enter your Name"
 
-#: form/form.py:53
+#: form/form.py:51
 msgid "O nome pode conter apenas letras e espaços."
 msgstr "The name can only contain letters and spaces."
 
-#: form/form.py:55
+#: form/form.py:53
 msgid "Introduza o seu Apelido"
 msgstr "Enter your Surname"
 
-#: form/form.py:62
+#: form/form.py:60
 msgid "Apenas números são permitidos."
 msgstr "Only numbers are allowed."
 
-#: form/form.py:66
+#: form/form.py:64
 msgid "Introduza o seu contacto telefónico"
 msgstr "Enter your phone number"
 
-#: form/form.py:72
+#: form/form.py:70
 msgid "Email"
 msgstr "Email"
 
-#: form/form.py:78
+#: form/form.py:76
 msgid "Introduza o seu Email"
 msgstr "Enter your Email"
 
-#: form/form.py:82 form/form.py:86
+#: form/form.py:80 form/form.py:84
 msgid "Selecione um parceiro(a)"
 msgstr "Select a partner"
 
-#: form/form.py:83
+#: form/form.py:81
 msgid "Por favor, selecione um parceiro(a)."
 msgstr "Please select a partner."
 
-#: form/form.py:91
+#: form/form.py:89
 msgid "Selecione uma procedimento"
 msgstr "Select a procedure"
 
-#: form/form.py:93
+#: form/form.py:91
 msgid "Por favor, selecione um procedimento."
 msgstr "Please select a procedure."
 
-#: form/form.py:98
+#: form/form.py:96
 msgid ""
 "Eu concordo em partilhar minhas informações de contato com o propósito de"
 " ser contactado pela Santiclinic"
 msgstr ""
-"I agree to share my contact information for the purpose of being contacted "
-"by Santiclinic."
+"I agree to share my contact information for the purpose of being "
+"contacted by Santiclinic."
 
-#: form/form.py:100
+#: form/form.py:98
 msgid "Por favor, aceite os termos de responsabilidade."
 msgstr "Please accept the terms of responsibility."
 
-#: form/form.py:104
+#: form/form.py:102
 msgid "Enviar"
 msgstr "Send"
+

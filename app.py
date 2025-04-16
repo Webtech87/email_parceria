@@ -18,10 +18,19 @@ app.config['BABEL_SUPPORTED_LOCALES'] = ['en', 'pt']
 babel = Babel(app)
 
 def get_locale():
-    return request.args.get('lang', default='en')
+    # Получаем язык из cookie или используем язык из заголовков запроса
+    return request.cookies.get('lang') or request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
 
 babel.init_app(app, locale_selector=get_locale)
 
+
+@app.route('/set_language/<lang_code>')
+def set_language(lang_code):
+    if lang_code in app.config['BABEL_SUPPORTED_LOCALES']:
+        resp = redirect(url_for('index'))
+        resp.set_cookie('lang', lang_code)
+        return resp
+    return 'Language does not suported!!', 400
 
 
 @app.route('/', methods=['GET', 'POST'])
