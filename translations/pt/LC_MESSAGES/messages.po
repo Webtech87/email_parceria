@@ -1,0 +1,127 @@
+# Portuguese translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-04-16 13:45+0100\n"
+"PO-Revision-Date: 2025-04-16 13:46+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt\n"
+"Language-Team: pt <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app.py:93
+msgid "Parceria SantiClinic"
+msgstr "Parceria SantiClinic"
+
+#: app.py:94
+msgid "Dados do Cliente"
+msgstr "Dados do Cliente"
+
+#: app.py:95 form/form.py:40
+msgid "Nome"
+msgstr "Nome"
+
+#: app.py:96 form/form.py:49
+msgid "Apelido"
+msgstr "Apelido"
+
+#: app.py:97
+msgid "Contactos"
+msgstr "Contactos"
+
+#: app.py:98 form/form.py:58
+msgid "Telefone"
+msgstr "Telefone"
+
+#: app.py:100
+msgid "Detalhes"
+msgstr "Detalhes"
+
+#: app.py:101 form/form.py:81
+msgid "Parceiro(a)"
+msgstr "Parceiro(a)"
+
+#: app.py:102 form/form.py:90
+msgid "Procedimento"
+msgstr "Procedimento"
+
+#: app.py:103
+msgid "Dados preenchidos no formulario SantiClinic."
+msgstr "Dados preenchidos no formulário SantiClinic."
+
+#: form/form.py:42 form/form.py:51 form/form.py:60 form/form.py:74
+msgid "Este campo é obrigatório."
+msgstr "Este campo é obrigatório."
+
+#: form/form.py:44
+msgid "O nome pode conter apenas letras и espaços."
+msgstr "O nome pode conter apenas letras e espaços."
+
+#: form/form.py:46
+msgid "Introduza o seu Nome"
+msgstr "Introduza o seu Nome"
+
+#: form/form.py:53
+msgid "O nome pode conter apenas letras e espaços."
+msgstr "O nome pode conter apenas letras e espaços."
+
+#: form/form.py:55
+msgid "Introduza o seu Apelido"
+msgstr "Introduza o seu Apelido"
+
+#: form/form.py:62
+msgid "Apenas números são permitidos."
+msgstr "Apenas números são permitidos."
+
+#: form/form.py:66
+msgid "Introduza o seu contacto telefónico"
+msgstr "Introduza o seu contacto telefónico"
+
+#: form/form.py:72
+msgid "Email"
+msgstr "Email"
+
+#: form/form.py:78
+msgid "Introduza o seu Email"
+msgstr "Introduza o seu Email"
+
+#: form/form.py:82 form/form.py:86
+msgid "Selecione um parceiro(a)"
+msgstr "Selecione um parceiro(a)"
+
+#: form/form.py:83
+msgid "Por favor, selecione um parceiro(a)."
+msgstr "Por favor, selecione um parceiro(a)."
+
+#: form/form.py:91
+msgid "Selecione uma procedimento"
+msgstr "Selecione uma procedimento"
+
+#: form/form.py:93
+msgid "Por favor, selecione um procedimento."
+msgstr "Por favor, selecione um procedimento."
+
+#: form/form.py:98
+msgid ""
+"Eu concordo em partilhar minhas informações de contato com o propósito de"
+" ser contactado pela Santiclinic"
+msgstr ""
+"Eu concordo em partilhar minhas informações de contacto com o propósito de "
+"ser contactado pela SantiClinic."
+
+#: form/form.py:100
+msgid "Por favor, aceite os termos de responsabilidade."
+msgstr "Por favor, aceite os termos de responsabilidade."
+
+#: form/form.py:104
+msgid "Enviar"
+msgstr "Enviar"

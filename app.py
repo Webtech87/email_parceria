@@ -5,10 +5,24 @@ from email.mime.text import MIMEText
 from form.secret_CSRF import MAIL_SENDER, MAIL_PASSWORD, TO_EMAIL_PARSERIA
 from form.form import PartnerShipForm, save_to_excel, create_or_get_sheet, add_data_to_sheet # import functions from form.py
 from form.secret_CSRF import SECRET_KEY
+from flask_babel import Babel
+from flask import request
+from flask_babel import gettext as _
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_SUPPORTED_LOCALES'] = ['en', 'pt']
+
+babel = Babel(app)
+
+def get_locale():
+    return request.args.get('lang', default='en')
+
+babel.init_app(app, locale_selector=get_locale)
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -76,21 +90,22 @@ def index():
         </head>
         <body>
             <div class="email-container">
-                <h2>Parceria SantiClinic</h2>
-                <p><strong>Dados do Cliente:</strong></p>
-                <p>Nome: {nome}<br>
-                   Apelido: {apelido}</p>
-                <p><strong>Contactos:</strong></p>
-                <p>Telefone: {tel}<br>
+                <h2>{_('Parceria SantiClinic')}</h2>
+                <p><strong>{_('Dados do Cliente')}:</strong></p>
+                <p>{_('Nome')}: {nome}<br>
+                   {_('Apelido')}: {apelido}</p>
+                <p><strong>{_('Contactos')}:</strong></p>
+                <p>{_('Telefone')}: {tel}<br>
                    Email: {email}</p>
-                <p><strong>Detalhes:</strong></p>
-                <p>Parceiro(a): {partner}<br>
-                   Procedimento: {procedure}</p>
-                <p class="footer">Dados preenchidos no formulario SantiClinic.</p>
+                <p><strong>{_('Detalhes')}:</strong></p>
+                <p>{_('Parceiro(a)')}: {partner}<br>
+                   {_('Procedimento')}: {procedure}</p>
+                <p class="footer">{_('Dados preenchidos no formulario SantiClinic.')}</p>
             </div>
         </body>
         </html>
         """
+
         msg.attach(MIMEText(msg_html, 'html'))
 
         # SMTP server configuration

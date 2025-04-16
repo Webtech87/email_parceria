@@ -1,8 +1,3 @@
-from wtforms import BooleanField, SelectField, StringField, validators
-from flask_wtf import FlaskForm
-from wtforms.fields.simple import SubmitField, EmailField
-from wtforms.validators import DataRequired, Regexp
-
 # imports for working with excel
 import os
 from openpyxl import Workbook, load_workbook
@@ -12,90 +7,104 @@ from openpyxl.styles import Font
 from .secret_CSRF import CLIENT_SECRET_FILE
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-from googleapiclient.errors import HttpError
 
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, SelectField, BooleanField, validators
+from wtforms.validators import DataRequired, Regexp
+from wtforms.fields import EmailField
+from flask_babel import lazy_gettext as _
 
+# Убедитесь, что partners_list и procedure_list определены глобально
 partners_list = [
-    'Márcia Monteiro Micropigmentação','Claudia Vieira'
+    "Selecione um parceiro(a)",
+    "Claudia Vieira",
+    "Elia Camões",
+    "Márcia Monteiro Micropigmentação"
 ]
 
 procedure_list = [
-    'Microcirurgia cosmética Consulta',
-    'Micro lifting de sobrancelha',
-    'Micro blefaroplastia superior',
-    'Micro blefaroplastia inferior',
-    'Lifting do terço médio e inferior',
-    'Micro cervicoplastia (papada e pescoço)',
-    'Micro implante de sobrancelha',
-    'Laser CO2'
+    "Selecione uma procedimento",
+    "Microcirurgia cosmética Consulta",
+    "Micro lifting de sobrancelha",
+    "Micro blefaroplastia superior",
+    "Micro blefaroplastia inferior",
+    "Lifting do terço médio e inferior",
+    "Micro cervicoplastia (papada e pescoço)",
+    "Micro implante de sobrancelha",
+    "Laser CO2"
 ]
+
 
 class PartnerShipForm(FlaskForm):
     nome = StringField(
-        'Nome',
-        [
-            DataRequired(message="Este campo é obrigatório."),
+        label=_(u'Nome'),
+        validators=[
+            DataRequired(message=_(u"Este campo é obrigatório.")),
             validators.Length(min=4, max=25),
-            Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message="O nome pode conter apenas letras e espaços.")
+            Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message=_(u"O nome pode conter apenas letras и espaços."))
         ],
-        render_kw={"class": "form-control", "placeholder": "Introduza o seu Nome"}
+        render_kw={"class": "form-control", "placeholder": _(u"Introduza o seu Nome")}
     )
     apelido = StringField(
-        'Apelido',
-        [
-            DataRequired(message="Este campo é obrigatório."),
+        label=_(u'Apelido'),
+        validators=[
+            DataRequired(message=_(u"Este campo é obrigatório.")),
             validators.Length(min=3, max=25),
-            Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message="O nome pode conter apenas letras e espaços.")
+            Regexp(r'^[A-Za-zÀ-ÿ\s]+$', message=_(u"O nome pode conter apenas letras e espaços."))
         ],
-        render_kw={"class": "form-control", "placeholder": "Introduza o seu Apelido"}
+        render_kw={"class": "form-control", "placeholder": _(u"Introduza o seu Apelido")}
     )
     tel = StringField(
-    'Telefone',
-    [
-        DataRequired(message="Este campo é obrigatório."),
-        validators.Length(min=9, max=14),
-        Regexp(r'^\d+$', message="Apenas números são permitidos.")
-    ],
-    render_kw={
-        "class": "form-control",
-        "placeholder": "Introduza o seu contacto telefónico",
-        "inputmode": "tel",  # Isso ajuda a exibir o teclado numérico no mobile
-        "pattern": "\\d*"  # Garante que apenas números sejam aceitos
-    }
-)
-    email = EmailField(
-        'Email',
-        [
-            DataRequired(message="Este campo é obrigatório."),
-            validators.Email(), validators.Length(min=6, max=35)
+        label=_(u'Telefone'),
+        validators=[
+            DataRequired(message=_(u"Este campo é obrigatório.")),
+            validators.Length(min=9, max=14),
+            Regexp(r'^\d+$', message=_("Apenas números são permitidos."))
         ],
-        render_kw={"class": "form-control", "placeholder": "Introduza o seu Email", "type": "email"}
+        render_kw={
+            "class": "form-control",
+            "placeholder": _("Introduza o seu contacto telefónico"),
+            "inputmode": "tel",  # Это помогает отображать цифровую клавиатуру на мобильном устройстве
+            "pattern": "\\d*"  # Гарантирует прием только цифр
+        }
+    )
+    email = EmailField(
+        label=_(u'Email'),
+        validators=[
+            DataRequired(message=_(u"Este campo é obrigatório.")),
+            validators.Email(),
+            validators.Length(min=6, max=35)
+        ],
+        render_kw={"class": "form-control", "placeholder": _("Introduza o seu Email"), "type": "email"}
     )
     partner_ship_list = SelectField(
-    'Parceiro(a)',
-    choices=[("", "Selecione um parceiro(a)")] + [(partner, partner) for partner in partners_list],
-    validators=[DataRequired(message="Por favor, selecione um parceiro(a).")],
-    render_kw={
-        "class": "input_class_selection form-control",
-        "placeholder": "Selecione um parceiro(a)"
-    }
-)
+        label=_(u'Parceiro(a)'),
+        choices=[("", _("Selecione um parceiro(a)"))] + [(partner, partner) for partner in partners_list],
+        validators=[DataRequired(message=_("Por favor, selecione um parceiro(a)."))],
+        render_kw={
+            "class": "input_class_selection form-control",
+            "placeholder": _("Selecione um parceiro(a)")
+        }
+    )
     procedure_list = SelectField(
-        'Procedimento',
-        choices= [("", "Selecione uma procedimento")] +[(procedure, procedure) for procedure in procedure_list],
-        validators=[DataRequired(message="Por favor, selecione um procedimento).")],
+        label=_(u'Procedimento'),
+        choices=[("", _("Selecione uma procedimento"))] + [(procedure, procedure) for procedure in
+                                                           procedure_list],
+        validators=[DataRequired(message=_("Por favor, selecione um procedimento."))],
         render_kw={"class": "input_class_selection form-control"}
     )
     checkbox = BooleanField(
-        'Eu concordo em partilhar minhas informações de contato com o propósito de ser contactado pela Santiclinic',
+        label=_(
+            u'Eu concordo em partilhar minhas informações de contato com o propósito de ser contactado pela Santiclinic'),
         default=False,
-        validators=[DataRequired(message="Por favor, aceite os termos de responsabilidade.).")],
+        validators=[DataRequired(message=_("Por favor, aceite os termos de responsabilidade."))],
         render_kw={"class": "custom_checkbox form-check-input"}
     )
     submit = SubmitField(
-        "Enviar",
+        label=_(u'Enviar'),
         render_kw={"class": "input_class_submit btn-success"}
     )
+
 
 # Create or load Excel file and save information from the form
 def save_to_excel(data):
@@ -111,16 +120,18 @@ def save_to_excel(data):
         for col, header in enumerate(headers, start=1):
             cell = sheet.cell(row=1, column=col, value=header)
             cell.font = bold_font
-    
+
     else:
         wb = load_workbook(file_name)
-    
+
     sheet = wb.active
     sheet.append(data)
     wb.save(file_name)
 
+
 # Google Sheets logic
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+
 
 # Get credentials
 def get_credentials():
@@ -128,17 +139,19 @@ def get_credentials():
 
     return credentials
 
+
 def search_spreadsheet_by_name(service, spreadsheet_name="clients_info"):
     # Search for a sheet by name in Google Drive.
     query = f"name = '{spreadsheet_name}' and mimeType = 'application/vnd.google-apps.spreadsheet'"
     results = service.files().list(q=query, fields="files(id, name)").execute()
     spreadsheets = results.get('files', [])
-    
+
     if spreadsheets:
         return spreadsheets[0]['id']  # Return the first sheet's ID found
     else:
         return None  # No sheet found
-    
+
+
 def share_sheet_with_email(sheet_id, email='felipe.piano@gmail.com'):
     # Share the sheet with a Google account
     credentials = service_account.Credentials.from_service_account_file(CLIENT_SECRET_FILE, scopes=SCOPES)
@@ -159,6 +172,7 @@ def share_sheet_with_email(sheet_id, email='felipe.piano@gmail.com'):
 
     print(f'Sheet shared with {email}')
 
+
 # Create a new sheet if it doesn't exist, or return the existing sheet's ID.
 def create_or_get_sheet(sheet_name='Sheet1'):
     credentials = get_credentials()
@@ -166,7 +180,7 @@ def create_or_get_sheet(sheet_name='Sheet1'):
     # First, use the Drive API to check for an existing sheet
     drive_service = build('drive', 'v3', credentials=credentials)
     sheet_id = search_spreadsheet_by_name(drive_service, 'clients_info_new')
-    
+
     if not sheet_id:
         # If no sheet exists, create a new one using the Sheets API
         sheets_service = build('sheets', 'v4', credentials=credentials)
@@ -187,13 +201,14 @@ def create_or_get_sheet(sheet_name='Sheet1'):
         sheets_service.spreadsheets().values().update(
             spreadsheetId=sheet_id,
             range=range_,
-            valueInputOption='RAW',  # Use 'RAW' if you just want the raw data inserted, 'USER_ENTERED' for Google Sheets functions
+            valueInputOption='RAW',
+            # Use 'RAW' if you just want the raw data inserted, 'USER_ENTERED' for Google Sheets functions
             body=body
         ).execute()
 
         share_sheet_with_email(sheet_id)
 
-         # Wait for the sheet to be fully created and populated
+        # Wait for the sheet to be fully created and populated
         print(f"Headers inserted into sheet: {sheet_name}")
 
     else:
@@ -202,11 +217,12 @@ def create_or_get_sheet(sheet_name='Sheet1'):
 
     return sheet_id
 
+
 def add_data_to_sheet(sheet_id, data, sheet_name='Sheet1'):
     # Append data to the given Google Sheet.
     credentials = get_credentials()
     service = build('sheets', 'v4', credentials=credentials)
-    
+
     # Prepare data to be added
     body = {'values': [data]}
 
