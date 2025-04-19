@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-16 15:24+0100\n"
-"PO-Revision-Date: 2025-04-16 13:46+0100\n"
+"POT-Creation-Date: 2025-04-19 12:04+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -136,7 +136,7 @@ msgstr "Por favor, selecione um parceiro(a)."
 
 #: form/form.py:89
 msgid "Selecione uma procedimento"
-msgstr "Selecione uma procedimento"
+msgstr "Selecione um procedimento"
 
 #: form/form.py:91
 msgid "Por favor, selecione um procedimento."
@@ -147,8 +147,8 @@ msgid ""
 "Eu concordo em partilhar minhas informações de contato com o propósito de"
 " ser contactado pela Santiclinic"
 msgstr ""
-"Eu concordo em partilhar minhas informações de contacto com o propósito "
-"de ser contactado pela SantiClinic."
+"Eu concordo em partilhar minhas informações de contato com o propósito de"
+" ser contactado pela Santiclinic"
 
 #: form/form.py:98
 msgid "Por favor, aceite os termos de responsabilidade."
@@ -157,4 +157,20 @@ msgstr "Por favor, aceite os termos de responsabilidade."
 #: form/form.py:102
 msgid "Enviar"
 msgstr "Enviar"
+
+#: templates/index.html:74
+msgid ""
+"Este site utiliza cookies para garantir que você tenha a melhor\n"
+"          experiência em nosso site."
+msgstr ""
+"Este site utiliza cookies para garantir que você tenha a melhor "
+"experiência em nosso site."
+
+#: templates/index.html:80
+msgid "Mais informações."
+msgstr "Mais informações."
+
+#: templates/index.html:83
+msgid "Sim, aceito!"
+msgstr "Sim, aceito!"
 

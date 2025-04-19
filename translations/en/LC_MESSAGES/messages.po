@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-16 15:24+0100\n"
-"PO-Revision-Date: 2025-04-16 13:46+0100\n"
+"POT-Creation-Date: 2025-04-19 12:04+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -28,11 +28,11 @@ msgstr "Client Data"
 
 #: app.py:104 form/form.py:38
 msgid "Nome"
-msgstr "Name"
+msgstr "First Name"
 
 #: app.py:105 form/form.py:47
 msgid "Apelido"
-msgstr "Surname"
+msgstr "Last Name"
 
 #: app.py:106
 msgid "Contactos"
@@ -56,15 +56,15 @@ msgstr "Procedure"
 
 #: app.py:112
 msgid "Dados preenchidos no formulario SantiClinic."
-msgstr "Data filled out in the SantiClinic form."
+msgstr "Data filled in SantiClinic form."
 
 #: form/form.py:25
 msgid "Microcirurgia cosmética Consulta"
-msgstr "Cosmetic Micro-Surgery Consultation"
+msgstr "Cosmetic Microsurgery Consultation"
 
 #: form/form.py:26
 msgid "Micro lifting de sobrancelha"
-msgstr "Micro Eyebrow Lifting"
+msgstr "Eyebrow Micro Lifting"
 
 #: form/form.py:27
 msgid "Micro blefaroplastia superior"
@@ -76,7 +76,7 @@ msgstr "Lower Micro Blepharoplasty"
 
 #: form/form.py:29
 msgid "Lifting do terço médio e inferior"
-msgstr "Mid and Lower Third Lifting"
+msgstr "Middle and Lower Face Lifting"
 
 #: form/form.py:30
 msgid "Micro cervicoplastia (papada e pescoço)"
@@ -84,12 +84,11 @@ msgstr "Micro Cervicoplasty (Double Chin and Neck)"
 
 #: form/form.py:31
 msgid "Micro implante de sobrancelha"
-msgstr "Micro Eyebrow Implant"
+msgstr "Eyebrow Micro Implant"
 
 #: form/form.py:32
 msgid "Laser CO2"
 msgstr "CO2 Laser"
-
 
 #: form/form.py:40 form/form.py:49 form/form.py:58 form/form.py:72
 msgid "Este campo é obrigatório."
@@ -101,7 +100,7 @@ msgstr "The name can only contain letters and spaces."
 
 #: form/form.py:44
 msgid "Introduza o seu Nome"
-msgstr "Enter your Name"
+msgstr "Enter your First Name"
 
 #: form/form.py:51
 msgid "O nome pode conter apenas letras e espaços."
@@ -109,7 +108,7 @@ msgstr "The name can only contain letters and spaces."
 
 #: form/form.py:53
 msgid "Introduza o seu Apelido"
-msgstr "Enter your Surname"
+msgstr "Enter your Last Name"
 
 #: form/form.py:60
 msgid "Apenas números são permitidos."
@@ -149,7 +148,7 @@ msgid ""
 " ser contactado pela Santiclinic"
 msgstr ""
 "I agree to share my contact information for the purpose of being "
-"contacted by Santiclinic."
+"contacted by Santiclinic"
 
 #: form/form.py:98
 msgid "Por favor, aceite os termos de responsabilidade."
@@ -157,5 +156,21 @@ msgstr "Please accept the terms of responsibility."
 
 #: form/form.py:102
 msgid "Enviar"
-msgstr "Send"
+msgstr "Submit"
+
+#: templates/index.html:74
+msgid ""
+"Este site utiliza cookies para garantir que você tenha a melhor\n"
+"          experiência em nosso site."
+msgstr ""
+"This website uses cookies to ensure you get the best experience on our "
+"site."
+
+#: templates/index.html:80
+msgid "Mais informações."
+msgstr "More information."
+
+#: templates/index.html:83
+msgid "Sim, aceito!"
+msgstr "Yes, I accept!"
 
