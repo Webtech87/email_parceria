@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-16 15:24+0100\n"
+"POT-Creation-Date: 2025-04-19 12:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,4 +153,18 @@ msgstr ""
 
 #: form/form.py:102
 msgid "Enviar"
+msgstr ""
+
+#: templates/index.html:74
+msgid ""
+"Este site utiliza cookies para garantir que você tenha a melhor\n"
+"          experiência em nosso site."
+msgstr ""
+
+#: templates/index.html:80
+msgid "Mais informações."
+msgstr ""
+
+#: templates/index.html:83
+msgid "Sim, aceito!"
 msgstr ""
