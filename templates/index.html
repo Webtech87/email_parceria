@@ -6,7 +6,9 @@
   <link rel="stylesheet" type="text/css" href="../static/style/styles.css"/>
   <link rel="stylesheet" type="text/css" href="../static/style/media_query.css"/>
   <link rel="icon" type="image/png" href="/static/img/diamond.png"/>
-  <title>Microcirurgia Formulario</title>
+  <title>
+    {{ _('Microcirurgia Formulario') }}
+  </title>
 
   <!-- Fonte Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +24,7 @@
 </head>
 <body>
 <div class="form-wrapper">
-  <form method="post" action="/">
+  <form novalidate method="post" action="/">
     <header_form>
       <div class="change_lang_container">
         <a href="{{ url_for('set_language', lang_code='en') }}">🇬🇧 GB</a>
@@ -55,16 +57,28 @@
       {% elif field.name == 'checkbox' %}
         <div class="form-check">
           {{ field(class="form-check-input") }}
-          <label class="form-check-label" for="{{ field.id }}">
+          <label  class="form-check-label" for="{{ field.id }}">
             {{ field.label.text }}
           </label>
+          {% if field.errors %}
+            {% for error in field.errors %}
+              <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+          {% endif %}
         </div>
       {% else %}
         <p class="label">{{ field.label }}</p>
         <p>{{ field }}</p>
+        {% if field.errors %}
+          {% for error in field.errors %}
+            <div style="margin: 5px 5%; padding: 5px;" class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
+        {% endif %}
       {% endif %}
     {% endfor %}
   </form>
+
+
 </div>
 <div id="cookies">
   <div class="container">

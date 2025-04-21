@@ -1,4 +1,11 @@
-# Changes Made by Felipe
+# Changes Made by WEbTech87
+
+## General email Data
+
+  - MAIL_USERNAME = 'request.sender@webtech87.pt'
+  - MAIL_PASSWORD = 'xxxx xxxx xxxx' - confirm with WEbTech87(Roberto or Boris)
+  - MAIL_SENDER = 'request.sender@webtech87.pt'
+  - TO_EMAIL_PARSERIA = 'parceria@santiclinic.eu'
 
 ## Backend
 

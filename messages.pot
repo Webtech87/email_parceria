@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-19 12:04+0100\n"
+"POT-Creation-Date: 2025-04-21 13:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,154 +17,162 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app.py:102
+#: app.py:86
 msgid "Parceria SantiClinic"
 msgstr ""
 
-#: app.py:103
+#: app.py:87
 msgid "Dados do Cliente"
 msgstr ""
 
-#: app.py:104 form/form.py:38
+#: app.py:88 form/form.py:31
 msgid "Nome"
 msgstr ""
 
-#: app.py:105 form/form.py:47
+#: app.py:88 form/form.py:41
 msgid "Apelido"
 msgstr ""
 
-#: app.py:106
+#: app.py:89
 msgid "Contactos"
 msgstr ""
 
-#: app.py:107 form/form.py:56
+#: app.py:90 form/form.py:50
 msgid "Telefone"
 msgstr ""
 
-#: app.py:109
+#: app.py:91
 msgid "Detalhes"
 msgstr ""
 
-#: app.py:110 form/form.py:79
+#: app.py:92 form/form.py:73
 msgid "Parceiro(a)"
 msgstr ""
 
-#: app.py:111 form/form.py:88
+#: app.py:92 form/form.py:82
 msgid "Procedimento"
 msgstr ""
 
-#: app.py:112
+#: app.py:93
 msgid "Dados preenchidos no formulario SantiClinic."
 msgstr ""
 
-#: form/form.py:25
+#: app.py:110
+msgid "Obrigado por enviar os seus dados"
+msgstr ""
+
+#: app.py:115
+msgid "Houve um erro ao enviar os dados. Tente novamente."
+msgstr ""
+
+#: form/form.py:15
 msgid "Microcirurgia cosmética Consulta"
 msgstr ""
 
-#: form/form.py:26
+#: form/form.py:16
 msgid "Micro lifting de sobrancelha"
 msgstr ""
 
-#: form/form.py:27
+#: form/form.py:17
 msgid "Micro blefaroplastia superior"
 msgstr ""
 
-#: form/form.py:28
+#: form/form.py:18
 msgid "Micro blefaroplastia inferior"
 msgstr ""
 
-#: form/form.py:29
+#: form/form.py:19
 msgid "Lifting do terço médio e inferior"
 msgstr ""
 
-#: form/form.py:30
+#: form/form.py:20
 msgid "Micro cervicoplastia (papada e pescoço)"
 msgstr ""
 
-#: form/form.py:31
+#: form/form.py:21
 msgid "Micro implante de sobrancelha"
 msgstr ""
 
-#: form/form.py:32
+#: form/form.py:22
 msgid "Laser CO2"
 msgstr ""
 
-#: form/form.py:40 form/form.py:49 form/form.py:58 form/form.py:72
+#: form/form.py:33 form/form.py:43 form/form.py:52 form/form.py:66
 msgid "Este campo é obrigatório."
 msgstr ""
 
-#: form/form.py:42
-msgid "O nome pode conter apenas letras и espaços."
-msgstr ""
-
-#: form/form.py:44
-msgid "Introduza o seu Nome"
-msgstr ""
-
-#: form/form.py:51
+#: form/form.py:35 form/form.py:45
 msgid "O nome pode conter apenas letras e espaços."
 msgstr ""
 
-#: form/form.py:53
+#: form/form.py:37
+msgid "Introduza o seu Nome"
+msgstr ""
+
+#: form/form.py:47
 msgid "Introduza o seu Apelido"
 msgstr ""
 
-#: form/form.py:60
+#: form/form.py:54
 msgid "Apenas números são permitidos."
 msgstr ""
 
-#: form/form.py:64
+#: form/form.py:58
 msgid "Introduza o seu contacto telefónico"
 msgstr ""
 
-#: form/form.py:70
+#: form/form.py:64
 msgid "Email"
 msgstr ""
 
-#: form/form.py:76
+#: form/form.py:70
 msgid "Introduza o seu Email"
 msgstr ""
 
-#: form/form.py:80 form/form.py:84
+#: form/form.py:74 form/form.py:78
 msgid "Selecione um parceiro(a)"
 msgstr ""
 
-#: form/form.py:81
+#: form/form.py:75
 msgid "Por favor, selecione um parceiro(a)."
 msgstr ""
 
-#: form/form.py:89
+#: form/form.py:83
 msgid "Selecione uma procedimento"
 msgstr ""
 
-#: form/form.py:91
+#: form/form.py:85
 msgid "Por favor, selecione um procedimento."
 msgstr ""
 
-#: form/form.py:96
+#: form/form.py:90
 msgid ""
 "Eu concordo em partilhar minhas informações de contato com o propósito de"
 " ser contactado pela Santiclinic"
 msgstr ""
 
-#: form/form.py:98
+#: form/form.py:92
 msgid "Por favor, aceite os termos de responsabilidade."
 msgstr ""
 
-#: form/form.py:102
+#: form/form.py:96
 msgid "Enviar"
 msgstr ""
 
-#: templates/index.html:74
+#: templates/index.html:10
+msgid "Microcirurgia Formulario"
+msgstr ""
+
+#: templates/index.html:88
 msgid ""
 "Este site utiliza cookies para garantir que você tenha a melhor\n"
 "          experiência em nosso site."
 msgstr ""
 
-#: templates/index.html:80
+#: templates/index.html:94
 msgid "Mais informações."
 msgstr ""
 
-#: templates/index.html:83
+#: templates/index.html:97
 msgid "Sim, aceito!"
 msgstr ""
