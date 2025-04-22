@@ -42,13 +42,9 @@ google_sheet = client.open(
 
 sheet = google_sheet.get_worksheet(0)
 
-
-
-
 babel = Babel(app)
 
 def get_locale():
-    # Получаем язык из cookie или используем язык из заголовков запроса
     return request.cookies.get('lang') or request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
 
 babel.init_app(app, locale_selector=get_locale)
