@@ -15,8 +15,9 @@ from flask import request
 from flask_babel import gettext as _
 import datetime
 
-
-cred_file = 'credentials/client_secret.json'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+cred_file = os.path.join(BASE_DIR , 'credentials','client_secret.json')
+print('****',os.path.exists(cred_file))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
