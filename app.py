@@ -13,6 +13,7 @@ from form.secret_CSRF import MAIL_SENDER, MAIL_PASSWORD, TO_EMAIL_PARSERIA, SECR
 from flask_babel import Babel
 from flask import request
 from flask_babel import gettext as _
+import datetime
 
 
 cred_file = 'credentials/client_secret.json'
@@ -71,8 +72,9 @@ def index():
         partner = form.partner_ship_list.data
         procedure = form.procedure_list.data
         acept = True
+        dt_now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
-        data = [nome, apelido, tel, email, partner, procedure, acept]
+        data = [nome, apelido, tel, email, partner, procedure, acept, dt_now]
 
         try:
             print("connect to google sheet, and add new data")
